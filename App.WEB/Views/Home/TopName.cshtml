@@ -1,0 +1,58 @@
+﻿@*@using ASPmvc.Models.EntityView
+@using ASPmvc.Helpers
+@model TopicsViewAndPages
+<article class="View">
+    @if (Model != null)
+    {
+        var topic = Model.DataArticles.Data.Select(x => x.Topic.Name).Take(1).ToList();
+        var res = topic.Count == 0 ? "По этой тeме уже нет статей" : topic[0];
+        <h2>@Html.Raw(res)</h2>
+
+        foreach (var item in Model.DataArticles.Data)
+        {
+            <div id="topic-article">
+                <h3>
+                    @Html.ActionLink(item.Article.Heading, "ArticleRead", new { id = item.Article.Id })
+                </h3>
+
+                <h3>
+                    @item.Article.Id
+                </h3>
+
+                <div class="info-article">
+                    <div id="time-article">
+                        <time>
+                            @item.Article.DateResoulution.Value.ToShortDateString()     @item.Article.DateResoulution.Value.ToShortTimeString()
+                        </time>
+                    </div>
+                    <div id="user">
+
+                        <a href="@Url.Action("my", "Profiles", new { name = item.User.UserName })">
+
+                            @if (item.User.Photo != null)
+                            {
+                                @Html.Raw("<img src=\"data:image/jpeg;base64," + Convert.ToBase64String(item.User.Photo) + "\"/>")
+                            }
+                            else
+                            {
+                                <img src="~/Content/image/user-128.png">
+                            }
+                            @item.User.UserName
+                        </a>
+                    </div>
+                    <div id="comment">
+                        @Html.ActionLink("Comment:" + item.CommentsCount, "ArticleRead", "Home", null, null, "addcomment", new { id = item.Article.Id }, null)
+                    </div>
+                </div>
+
+                <p>@Html.Raw(item.Article.Description.Substring(0, (item.Article.Description.Length > 2000 ? 2000 : item.Article.Description.Length)) + "...")</p>
+                <hr />
+            </div>
+        }
+    }
+    <div class="pagering">
+        @Html.Paging(Model.MyPages, Model.DataArticles, x => Url.Action("TopName", new { topid = Model.DataArticles.IdTopic, Page = x }))
+    </div>
+
+</article>*@
+topName

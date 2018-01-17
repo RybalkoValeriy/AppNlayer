@@ -1,0 +1,42 @@
+﻿@*@using ASPmvc.Models.Entity
+@model List<Comments>
+
+
+<div id="wrap-comment" name="wrap-comment">
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <div class="info-comment">
+                <div id="time-article">
+                    <time>
+                        @item.DateComm
+                    </time>
+                </div>
+                <div id="user">
+                    @if (item.UserId.Photo != null)
+                    {
+                        @Html.Raw("<img src=\"data:image/jpeg;base64," + Convert.ToBase64String(item.UserId.Photo) + "\"/>")
+                    }
+                    else
+                    {
+                        <img src="~/Content/image/user-128.png">
+                    }
+                    <a href="@Url.Action("my", "Profiles", new { name = @item.UserId.UserName })">@item.UserId.UserName</a>
+                </div>
+            </div>
+            <div class="comments-text">
+                @item.Txt
+            </div>
+        }
+    }
+    else
+    {
+        <div>
+            Error
+        </div>
+    }
+</div>*@
+community
+
+

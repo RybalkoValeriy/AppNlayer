@@ -1,0 +1,526 @@
+﻿@font-face {
+    font-family: Roboto-Light;
+    src: url(/fonts/Roboto/Roboto-Light.ttf);
+}
+
+@font-face {
+    font-family: Roboto-Regular;
+    src: url(/fonts/Roboto/Roboto-Regular.ttf);
+}
+
+@font-face {
+    font-family: Roboto-Medium;
+    src: url(/fonts/Roboto/Roboto-Medium.ttf);
+}
+
+@font-face {
+    font-family: socicon;
+    src: url(/fonts/socicon.ttf);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: auto;
+}
+
+form {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+input {
+    height: 40px;
+    overflow: visible;
+    line-height: 36px;
+    -ms-border-radius: 4px;
+    border-radius: 4px;
+    border: 1px solid #d0d0d0;
+    width: 100%;
+    margin: 10px 0;
+    padding: 8px 10px;
+    font-family: Roboto-Light;
+    font-size: 16px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.input_invalid {
+    border: 1px solid #f49191;
+}
+
+.txt-center {
+    text-align: center;
+    font-family: Segoe UI;
+    font-size: 18px;
+    font-weight: 300;
+    color: gray;
+    width: auto;
+}
+
+input[type="submit"] {
+    border: 1px;
+    background: #79abe4;
+    color: white;
+    font-family: Roboto-Light;
+    font-size: 20px;
+    width: 100%;
+    padding: 8px 10px;
+    height: 50px;
+    -ms-border-radius: 4px;
+    border-radius: 4px;
+}
+
+input::-webkit-input-placeholder {
+    color: #454545;
+    font-family: Roboto-Light;
+    font-weight: 300;
+}
+
+input[type="submit"]:hover {
+    background: #2579da;
+}
+
+select {
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    font-family: Roboto-Light;
+    font-size: 16px;
+    line-height: 36px;
+    width: auto;
+}
+
+option:disabled {
+    background: #d8d4d4;
+}
+
+input:focus {
+    border: 1px solid rgb(71, 156, 255);
+    outline: none;
+}
+
+.form-login {
+    height: 100%;
+    width: 440px;
+    margin: 0 auto 0 auto;
+}
+
+    .form-login > input {
+        padding: 4px 6px;
+    }
+
+.View {
+    height: auto;
+    width: 1200px;
+    padding: 50px 50px;
+    margin: 0 auto 0 auto;
+    font-family: Roboto-Light;
+    font-size: 16px;
+}
+
+.txt-center > a {
+    text-decoration: none;
+    color: #2980b9;
+    font-family: Arial;
+    font-weight: 100;
+}
+
+    .txt-center > a:hover {
+        text-decoration: underline;
+    }
+
+h1,
+h2,
+h3 {
+    padding: 0;
+    margin: 0;
+    font-family: Roboto-Light;
+}
+
+h1 {
+    font-size: 60px;
+    font-family: Roboto-Light;
+    text-align: center;
+    color: #585757;
+}
+
+h2 {
+    font-size: 30px;
+    font-family: Roboto-Light;
+    text-align: center;
+    color: #585757;
+}
+
+p {
+    text-align: justify;
+    font-family: Segoe UI;
+    font-size: 18px;
+    font-weight: 400;
+    color: gray;
+    width: auto;
+}
+
+footer {
+    height: 100%;
+    width: 100%;
+    border-top: 1px solid #eaeaea;
+    box-shadow: inset 0 10px 40px 10px #f7f7f7;
+    margin-top: 70px;
+}
+
+.wrap-footer {
+    margin: 0 auto 0 auto;
+    height: 100%;
+    font-family: Roboto-Light;
+    color: rgb(191, 189, 189);
+    font-size: 14px;
+}
+
+@media screen and (max-width: 1300px) {
+    .View {
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .form-login {
+        width: 400px;
+    }
+}
+
+@media screen and (min-width: 993px) {
+    .menuOpen {
+        height: 54px;
+    }
+
+    .menuClose {
+        height: 54px;
+    }
+
+    .navigation {
+        height: 54px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .nav-left,
+    .nav-right {
+        display: block;
+        position: relative;
+    }
+
+    .wrap-nav > ul > li {
+        display: block;
+        position: relative;
+    }
+
+    .wrap-nav {
+        margin-top: 60px;
+        margin-bottom: 60px;
+    }
+
+    #ico-menu {
+        display: inline-block;
+    }
+
+    .nav-right > .nav {
+        margin: 0 auto 0 auto;
+        position: relative;
+        right: 100%;
+    }
+
+    .nav-left > .nav {
+        margin: 0 auto 0 auto;
+        position: relative;
+        left: 100%;
+    }
+
+    .navigation > .wrap-nav > ul > .nav > a {
+        font-size: 12px;
+    }
+
+    .View {
+        width: auto;
+    }
+
+    .form-login {
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .View {
+        width: auto;
+    }
+
+        .View > h1 {
+            text-align: inherit;
+        }
+
+    .form-login {
+        width: auto;
+    }
+}
+
+.menuOpen {
+    height: 330px;
+}
+
+.menuClose {
+    height: 54px;
+}
+
+.btnlink {
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background-color: rgba(59, 89, 152, 0.81);
+    text-align: left;
+    border: 1px solid #405d9b;
+    -ms-border-radius: 4px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-family: Segoe UI;
+    font-size: 16px;
+    color: #f7f7f7;
+    display: block;
+    line-height: 35px;
+    font-weight: 200;
+    position: relative;
+    padding-left: 45px;
+    height: 34px;
+}
+
+    .btnlink:hover {
+        background-color: #4764a4;
+    }
+
+.img-social:before {
+    position: absolute;
+    border-right: 1px solid #405d9b;
+    font-family: "socicon";
+    content: "\e041";
+    color: white;
+    font-size: 23px;
+    text-align: right;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 28px;
+    padding-right: 5px;
+}
+
+.field-validation-error {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 15px;
+    background: rgba(243, 63, 114, 0.05);
+    padding: 4px;
+}
+
+.input-validation-error {
+    border: 1px solid rgb(250, 167, 192);
+    position: relative;
+}
+
+    .input-validation-error:focus {
+        border: 1px solid rgb(250, 167, 192);
+        box-shadow: inset 0 1px 1px hsla(0, 0%, 0%, 0.08), 0 0 6px rgb(251, 187, 206);
+    }
+
+#topic-article {
+    padding-bottom: 35px;
+}
+
+.info-article {
+    height: 25px;
+    width: 100%;
+    margin: 10px 0 10px 0;
+    font-size: 12px;
+    font-weight: 100;
+    color: gray;
+    float: left;
+    line-height: 25px;
+    display: inline-block;
+    background-color: #f6f6f6;
+}
+
+.info-comment {
+    height: 25px;
+    width: 100%;
+    margin: 10px 0 10px 0;
+    font-size: 12px;
+    font-weight: 100;
+    color: gray;
+    line-height: 25px;
+    display: inline-block;
+}
+
+.comments-text {
+    margin-left: 5%;
+    color: gray;
+    font-size: 14px;
+    border: 1px solid #a5c0e0;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+#time-article, #user, #comments {
+    height: 25px;
+    line-height: 25px;
+    float: left;
+    padding-right: 20px;
+    font-family: Ubuntu;
+}
+
+    #user > a, img {
+        height: 25px;
+    }
+
+
+
+    #user > a, img {
+        vertical-align: top;
+        font-family: Ubuntu;
+        color: #2579da;
+        text-decoration: none;
+    }
+
+    #comments > a, img {
+        height: 25px;
+    }
+
+#comment > a {
+    vertical-align: top;
+    font-family: Ubuntu;
+    color: #2579da;
+    text-decoration: none;
+}
+
+#time-article:before {
+    background-image: url(../Content/image/IconTime.png);
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    content: '';
+    height: 20px;
+    width: 20px;
+    float: left;
+    position: relative;
+    top: 2px;
+    padding-right: 2px;
+}
+
+#comment {
+    height: auto;
+    width: 100%;
+    height: auto;
+}
+
+#Error-action-body {
+    border-radius: 4px;
+    padding: 5px;
+}
+
+#addcomment {
+    width: 100%;
+    height: 100%
+}
+
+    #addcomment > button {
+        float: left;
+        border: 2px solid #2579da;
+        width: 200px;
+        height: 30px;
+        background-color: white;
+        border-radius: 3px;
+    }
+
+    #addcomment > textarea {
+        border: 1px solid #a5c0e0;
+        border-radius: 3px;
+        margin: 10px;
+        width: 100%;
+        max-width: 100%;
+        height: 60px;
+        margin-left: 0;
+    }
+
+        #addcomment > textarea::-webkit-input-placeholder {
+            font-size: 12px;
+        }
+
+
+.pagering {
+    height: auto;
+    margin: 0 auto 0 auto;
+    width: 1200px;
+    padding: 20px 20px;
+}
+
+.ul-paging {
+    width: 660px;
+    margin: 0 auto 0 auto;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: baseline;
+    list-style: none;
+}
+
+    .ul-paging > li {
+    }
+
+        .ul-paging > li > a {
+            text-decoration: none;
+            margin: 0;
+            display: block;
+        }
+
+            .ul-paging > li > a > button {
+                height: 40px;
+                width: 40px;
+                border-radius: 60px;
+                border: none;
+                margin: 0;
+                outline: none;
+                cursor: pointer;
+            }
+
+                .ul-paging > li > a > button:hover {
+                    background-color: gray;
+                }
+
+            .ul-paging > li > a > .btn-pagining-select {
+                text-decoration: none;
+                position: relative;
+                background-color: #b1b4b9;
+                text-align: center;
+                position: relative;
+                height: 46px;
+                width: 46px;
+                margin: 0;
+            }
+
+#pagigingBtn {
+    height: 26px;
+    width: 26px;
+    font-family: Ubuntu;
+    font-size: 10px;
+}
+
+@media screen and (max-width: 1300px) {
+    .pagering {
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .pagering, .ul-paging {
+        width: auto;
+    }
+}

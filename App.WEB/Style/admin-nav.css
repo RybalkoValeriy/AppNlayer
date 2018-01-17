@@ -1,0 +1,22 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    height: auto;
+    width: auto;
+}
+.nav-admin {
+    float: left;
+    text-decoration: none;
+    width: 100px;
+    height: auto;
+    border-right: 1px solid gray;
+    padding-top: 100px;
+}
+.nav-admin,ul {
+    padding: 10px;
+    list-style: none;
+}
+.nav-admin,li {
+    height: 40px;
+}
+ 

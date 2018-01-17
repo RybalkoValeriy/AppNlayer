@@ -1,0 +1,14 @@
+﻿@using App.BLL.Infrastructure;
+@{
+    Culture culture = new Culture();
+    var lang = ViewContext.RouteData.Values["lang"].ToString().ToLower();
+}
+@if (culture.SerachLang(lang))
+{
+    <img src="/Content/image/@(lang).png" alt="" id="flag"/>
+}
+else
+{
+    <img src="/Content/image/ru.png" alt="" />
+}
+

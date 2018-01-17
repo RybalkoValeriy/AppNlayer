@@ -1,0 +1,32 @@
+﻿@using App.BLL.Data_Transfer_Objects
+@model IEnumerable<ViewTopicDto>
+
+
+@*@using ASPmvc.Models.Entity
+    @model IEnumerable<Topic>
+
+    <article class="View">
+        <h2>Topics</h2>
+        <ul>
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                    <li>
+                        @Html.ActionLink(item.Name, "TopName", new { topid = item.Id, Page=1 })
+                    </li>
+                }
+            }
+        </ul>
+    </article>*@
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>
+            @item.Name
+            <br />
+            @item.DateAdd
+        </li>
+    }
+</ul>

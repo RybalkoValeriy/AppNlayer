@@ -1,0 +1,94 @@
+﻿@using Resources
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="/Style/base.css" type="text/css" rel="stylesheet" />
+    <link href="/Style/nav.css" type="text/css" rel="stylesheet" />
+    <script src="~/Scripts/js/main.js" type="text/javascript"></script>
+
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <title>?????</title>
+</head>
+<body>
+    <nav class="navigation menuClose" id="navigationid">
+        <button id="ico-menu" title="menu" class="ico-menu">&#9776</button>
+        <div class="wrap-nav">
+            <ul class="nav-left">
+                <li class="nav">
+                    @Html.ActionLink("Topics", "Topic", "Home")
+                </li>
+                <li class="nav">
+                    <span class="navicon"></span>
+                    @Html.ActionLink("Home", "Topic", "Home")
+                </li>
+                <li class="nav">
+                    <span class="navicon"></span>
+                    @Html.ActionLink("Home", "Topic", "Home")
+                </li>
+            </ul>
+
+            <ul class="nav-right">
+                <li class="nav">
+                    @Html.ActionLink("Community", "Community", "Community")
+                </li>
+                <li class="nav">
+                    @(Request.IsAuthenticated ? Html.ActionLink(User.Identity.Name, "my", "Profiles", new { name = User.Identity.Name }, null) :
+                                        Html.ActionLink("Home", "Index", "Home"))
+                </li>
+                <li class="nav">
+                    @if (Request.IsAuthenticated)
+                    {
+                        @Html.ActionLink("Logout", "Out", "Profiles")
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("Login", "Registration")">
+                            <img src="~/Content/image/login.png" alt="" />@Resource.Login
+                        </a>
+                    }
+                </li>
+                @if (!Request.IsAuthenticated)
+                {
+                    <li class="nav">
+                        <a href="@Url.Action("RegisterUser", "Registration")">
+                            <img src="/Content/image/user-2-icon.png" alt="" />Register
+                        </a>
+                    </li>
+                }
+                <li class="nav">
+                    <button id="settings">
+                        <img src="~/Content/image/settings1.png" title="settings" id="img-sett" />
+                        <span id="arrow"></span>
+                    </button>
+                </li>
+                <li class="nav">
+                    @Html.Partial("_langIMG")
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="settings-icon display-none" id="settings-menu">
+        @Html.Partial("_settingMenu")
+    </div>
+    @RenderBody()
+    <footer>
+        <div class="wrap-footer">
+            About us
+            Terms of service
+            <br />
+            About us
+            Terms of serviceAbout us
+            Terms of service<br />
+            About us
+            Terms of serviceAbout us
+            Terms of service <br />
+        </div>
+        <a href="/Admin">Admin-panel</a>
+    </footer>
+
+</body>
+</html>

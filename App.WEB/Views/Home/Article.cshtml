@@ -1,0 +1,93 @@
+﻿@*@using ASPmvc.Models.Entity
+@using ASPmvc.Models
+@using ASPmvc.Models.EntityView
+
+@model ArticleView
+
+@if (Model != null && Model.Article != null && Model.User != null)
+{
+    <article class="View">
+
+        <div id="topic-article">
+            <h2>@Model.Article.Heading</h2>
+            <div class="info-article">
+                <div id="time-article">
+                    <time>
+                        @Model.Article.DateResoulution.Value.ToShortDateString()
+                        @Model.Article.DateResoulution.Value.ToShortTimeString()
+                    </time>
+                </div>
+                <div id="user">
+                    @if (Model.User.Photo != null)
+                    {
+                        @Html.Raw("<img src=\"data:image/jpeg;base64," + Convert.ToBase64String(Model.User.Photo) + "\"/>")
+                    }
+                    else
+                    {
+                        <img src="~/Content/image/user-128.png">
+                    }
+                    <a href="@Url.Action("my", "Profiles", new { name = @Model.User.UserName })">@Model.User.UserName</a>
+                </div>
+            </div>
+            <div id="descr">
+                @Html.Raw(Model.Article.Description)
+            </div>
+        </div>
+        <script type="text/javascript">
+            window.onload = function () {
+                var area = document.getElementById('commtxt');
+                var idArticle = document.getElementById('articleid');
+                var mess = document.getElementById('messageComm');
+                var wrapComm = document.getElementById('wrap-comment');
+
+                function myf() {
+                    if (area.value.length !== 0 && idArticle.value.length!==0) {
+                        $.ajax({
+                            url: "@Url.Action("AddComment")",
+                            type: "POST",
+                            data: { commtxt: area.value, articleid: idArticle.value },
+                            statusCode: {
+                                200: function () {
+                                    mess.innerText = "добавлено";
+                                    mess.style.backgroundColor = "#B9F7CE";
+                                    area.value = '';
+                                }
+                            },
+                            success: function (resp) {
+                                wrapComm.innerHTML = resp;
+
+                            }
+                        });
+                    }
+                    else {
+                        mess.innerText = "ошибка отправки, поля должны быть заполнены";
+                        mess.style.backgroundColor = "pink";
+                    }
+                };
+
+                var btnAddComm = document.getElementById('btnaddcomment');
+                if (btnAddComm) {
+                    btnAddComm.addEventListener('click', myf, false);
+                }
+            };
+        </script>
+        @if (Request.IsAuthenticated)
+        {
+            <div id="addcomment">
+                @Html.AntiForgeryToken()
+                <button id="btnaddcomment">
+                    Добавить коментарий
+                </button>
+                <textarea id="commtxt" name="commtxt" placeholder="Ваш комменатрий" rows="10" cols="100"></textarea>
+                <input type="hidden" value="@Request.QueryString["id"]" name="articleid" id="articleid" />
+                <div id="messageComm">
+
+                </div>
+            </div>
+        }
+        
+
+        @Html.Action("CommView", "Home", new { model = Model.Comments })
+    </article>
+}*@
+article

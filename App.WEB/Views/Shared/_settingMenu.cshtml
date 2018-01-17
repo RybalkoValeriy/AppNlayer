@@ -1,0 +1,26 @@
+﻿@{
+    // todo: Изменить представление
+    var action = ViewContext.RouteData.Values["action"].ToString();
+    var controller = ViewContext.RouteData.Values["controller"].ToString();
+    var nameuser = Request.Params["name"];
+    var act = Request.Params["act"];
+}
+
+<span>@Resources.Resource.lang:</span>
+<div class="wrap-flag">
+
+    <a href="@Url.Action(action, controller, new { lang = "ru", name = nameuser, act = act })">
+        <img src="/Content/image/ru.png" alt="" />
+    </a>
+</div>
+<div class="wrap-flag">
+    <a href="@Url.Action(action, controller, new { lang = "en", name = nameuser, act = act })">
+        <img src="/Content/image/en.png" alt="" />
+    </a>
+</div>
+<div class="wrap-flag">
+    <a href="@Url.Action(action, controller, new { lang = "de", name = nameuser, act = act })">
+        <img src="/Content/image/de.png" alt="" />
+    </a>
+</div>
+<hr />

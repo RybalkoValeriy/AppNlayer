@@ -1,0 +1,215 @@
+﻿.profiles-wrapp {
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    /*border: 1px solid gray;*/
+}
+
+.prf-wrap-body {
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+
+.prf-body-body {
+    width: 100%;
+    height: 100%;
+}
+
+
+.profiles-wrapp span {
+    color: #3872cf
+}
+
+.user-content {
+    position: relative;
+}
+
+.prf-create {
+    width: auto;
+    height: auto;
+}
+
+    .prf-create a {
+        text-decoration: none;
+        color: #2980b9;
+        font-weight: 100;
+    }
+
+    .prf-create ul {
+        list-style: none;
+    }
+
+    .prf-create ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0;
+        margin: 0;
+    }
+
+    .prf-create li:hover {
+        background-color: pink;
+    }
+
+.avatar {
+    min-width: 250px;
+}
+
+.Photo {
+    border-radius: 90px;
+    width: 150px;
+    height: 150px;
+    margin: auto auto;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+    .Photo img {
+        max-width: 150px;
+        height: auto;
+        width: auto;
+        background-size: cover;
+    }
+
+
+.changphoto input[type=file] {
+    visibility: hidden;
+    position: absolute;
+}
+
+#styleload {
+    height: inherit;
+    max-width: 150px;
+    max-height: 100%;
+    vertical-align: top;
+    border: 1px solid #d4cece;
+    position: center;
+    cursor: pointer;
+    margin: 10px auto 10px auto;
+    text-align: center;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    font-size: 10px;
+}
+
+    #styleload:hover {
+        background-color: #f7f7f7;
+    }
+
+#errorload {
+    color: rgba(255, 20, 147, 0.40);
+    margin: 0 auto 0 auto;
+    width: 150px;
+}
+
+#submitphoto {
+    height: auto;
+    font-size: 17px;
+    border-radius: 4px;
+    margin: 10px auto 10px auto;
+    vertical-align: middle;
+    font-size: 10px;
+    padding: 0;
+}
+
+
+aside {
+    overflow: hidden;
+}
+
+.profiles-themes {
+    width: 100%;
+    height: auto;
+}
+
+.header-theme {
+    height: auto;
+    width: 350px;
+    font-size:19px;
+}
+
+.body-theme {
+    width: 100%;
+    height: 100%;
+    float: left;
+}
+
+    .body-theme ul {
+        list-style: none;
+    }
+
+    .body-theme li {
+        padding: 3px;
+    }
+
+        .body-theme li:hover {
+            background-color: rgba(255, 105, 180, 0.23);
+            border-radius: 10px;
+        }
+
+.graphics {
+    width: 500px;
+    height: 300px;
+    min-height: 200px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    margin: 40px auto 40px auto;
+}
+
+.stat-topic {
+    margin-top: 80px;
+}
+    .stat-topic>ul {
+        width: 200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+.post-no {
+    height: auto;
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+}
+.post-yes {
+    height: auto;
+    border: 1px solid #eaeaea;
+}
+@media screen and (max-width: 992px) {
+    .profiles-wrapp {
+        flex-direction: column;
+    }
+
+    #styleload {
+        max-width: 150px;
+        max-height: 25px;
+        overflow: hidden;
+        -ms-text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+    }
+
+    #submitphoto {
+        max-width: 150px;
+    }
+
+    .prf-create ul {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: stretch;
+        margin: 10px;
+    }
+
+    .prf-create li {
+        width: auto;
+        margin: 10px;
+    }
+}
