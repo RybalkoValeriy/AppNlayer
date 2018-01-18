@@ -27,6 +27,8 @@ namespace App.BLL.Services
             unitOfWork = uofw;
         }
 
+  
+
         public IServices BuildSetEmailServiceIdentity(IIdentityMessageService mailServ)
         {
             this.unitOfWork.UsersManager.EmailService = mailServ;
@@ -49,6 +51,7 @@ namespace App.BLL.Services
 
         public async Task CreateUserAndAddRoleAsync(UserDto userDTO)
         {
+
             var validationUser = await unitOfWork.UsersManager.FindByEmailAsync(userDTO.Email);
             if (validationUser == null)
             {
@@ -58,6 +61,7 @@ namespace App.BLL.Services
                 await unitOfWork.AddRoleAndUserToRoleAddAsync(user, userDTO.RoleName);
             }
             //throw new Exception("userDto error");
+
         }
 
         public IEnumerable<TopicViewDto> GetAllTopic()

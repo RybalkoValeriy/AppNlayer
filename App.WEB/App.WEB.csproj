@@ -197,10 +197,6 @@
     <Compile Include="Resources\Resource.en.Designer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\conmssql2.mdf" />
-    <Content Include="App_Data\conmssql2_log.ldf">
-      <DependentUpon>conmssql2.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -293,7 +289,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="connString.config" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="fonts\Roboto\Roboto-Black.ttf" />
@@ -352,6 +347,7 @@
     <Content Include="Views\Home\_CommView.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Util\" />
   </ItemGroup>
   <ItemGroup>

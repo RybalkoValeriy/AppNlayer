@@ -34,9 +34,9 @@ namespace App.WEB.Controllers
         {
         }
 
-        public ActionResult Topic()
+        public async Task<ActionResult> Topic()
         {
-            DbInitilize();
+            await DbInitilize();
             var model = Services.GetAllTopic();
             //todo: добавить свою модель
             return View("Topic", model);
@@ -44,7 +44,7 @@ namespace App.WEB.Controllers
 
         public ActionResult Article(int id)
         {
-
+            return View();
         }
 
         private Task DbInitilize()

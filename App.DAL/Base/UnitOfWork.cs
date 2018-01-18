@@ -28,6 +28,7 @@ namespace App.DAL.Base
         }
 
 
+
         public async Task<ApplicationUsers> CreateUserAndGetUserAsync(ApplicationUsers newUser)
         {
             var result = await UserManager.CreateAsync(newUser);
@@ -40,7 +41,7 @@ namespace App.DAL.Base
 
         public async Task AddRoleAndUserToRoleAddAsync(ApplicationUsers user, object roleName)
         {
-            if (roleName != null)
+            if (!String.IsNullOrEmpty(roleName.ToString()))
             {
                 var findRole = await RoleManager.FindByNameAsync(roleName.ToString());
                 if (findRole == null)
@@ -49,7 +50,8 @@ namespace App.DAL.Base
                 }
                 await UserManager.AddToRoleAsync(user.Id, roleName.ToString());
             }
-            throw new ArgumentNullException("roleName is null");
+            else
+                throw new ArgumentNullException("roleName is null");
         }
 
         public ApplicationDataContext Data => DataContext;

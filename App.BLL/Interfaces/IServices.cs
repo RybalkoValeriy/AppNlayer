@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using App.BLL.Data_Transfer_Objects;
+using App.DAL.Entities.Users;
 using Microsoft.AspNet.Identity;
 
 namespace App.BLL.Interfaces

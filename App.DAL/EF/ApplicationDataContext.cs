@@ -12,6 +12,7 @@ namespace App.DAL.EF
         {
         }
 
+
         //------------------------------------------------------------
         public DbSet<ApplicationRole> RolesDbSet { get; set; }
         public DbSet<Topic> TopicsDbset { get; set; }
