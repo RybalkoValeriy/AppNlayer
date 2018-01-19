@@ -38,6 +38,7 @@ namespace App.WEB.Controllers
         {
             await DbInitilize();
             var model = Service.WhereTopic(Services.GetAllTopic().AsQueryable(), x => x.TopicResolution == true);
+            // или просто Services.GetAllTopic().Asqueryable().where(x=>x.poticresolution==true);
             //todo: добавить свою модель
             return View("Topic", model);
         }
