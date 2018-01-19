@@ -37,7 +37,7 @@ namespace App.WEB.Controllers
         public async Task<ActionResult> Topic()
         {
             await DbInitilize();
-            var model = Services.GetAllTopic();
+            var model = Service.WhereTopic(Services.GetAllTopic().AsQueryable(), x => x.TopicResolution == true);
             //todo: добавить свою модель
             return View("Topic", model);
         }

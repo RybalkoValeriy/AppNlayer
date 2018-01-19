@@ -15,6 +15,7 @@ using System.Net.Mail;
 using App.BLL.Data_Transfer_Objects;
 using AutoMapper;
 using App.DAL.Entities;
+using System.Linq.Expressions;
 
 namespace App.BLL.Services
 {
@@ -27,7 +28,7 @@ namespace App.BLL.Services
             unitOfWork = uofw;
         }
 
-  
+
 
         public IServices BuildSetEmailServiceIdentity(IIdentityMessageService mailServ)
         {
@@ -69,9 +70,16 @@ namespace App.BLL.Services
             return Mapper.Map<IEnumerable<Topic>, IEnumerable<TopicViewDto>>(unitOfWork.Topics.GGetAll());
         }
 
+        public  IQueryable<TopicViewDto> WhereTopic(IQueryable<TopicViewDto> coll, Func<TopicViewDto, bool> predicate)
+        {
+            return coll.Where(predicate).AsQueryable();
+        }
+
         public ArticleDto GetArticleId(int id)
         {
             return Mapper.Map<Article, ArticleDto>(unitOfWork.Articles.GGetId(id));
         }
+
+
     }
 }

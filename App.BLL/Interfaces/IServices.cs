@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using App.BLL.Data_Transfer_Objects;
 using App.DAL.Entities.Users;
@@ -14,5 +15,6 @@ namespace App.BLL.Interfaces
         IEnumerable<TopicViewDto> GetAllTopic();
         IServices BuildSetEmailServiceIdentity(IIdentityMessageService mailServ);
         ArticleDto GetArticleId(int id);
+        IQueryable<TopicViewDto> WhereTopic(IQueryable<TopicViewDto> coll, Func<TopicViewDto, bool> predicate);
     }
 }

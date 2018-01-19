@@ -58,7 +58,7 @@ namespace App.WEB.Tests.Controller
         {
             //Arrange
             //Act
-            var viewResult = homeController.Topic() as ViewResult;
+            var viewResult = homeController.Topic().Result as ViewResult;
             //Assert
             Assert.IsNotNull(viewResult, "result action Topic is null");
         }
@@ -67,7 +67,7 @@ namespace App.WEB.Tests.Controller
         public void Topic_ViewNameTopic_TopicReturns()
         {
             string viewNameExpected = "Topic";
-            var viewResult = homeController.Topic() as ViewResult;
+            var viewResult = homeController.Topic().Result as ViewResult;
             Assert.AreEqual(viewNameExpected, viewResult.ViewName, "name of view is not Topic");
         }
 
@@ -75,7 +75,7 @@ namespace App.WEB.Tests.Controller
         public void Topic_inModel_ModelReturns()
         {
             mockServices.Setup(mq => mq.GetAllTopic()).Returns(testModel);
-            var viewResult = homeController.Topic() as ViewResult;
+            var viewResult = homeController.Topic().Result as ViewResult;
             Assert.AreEqual(testModel, viewResult.Model);
         }
 
