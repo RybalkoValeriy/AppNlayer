@@ -87,6 +87,7 @@
     <Compile Include="Indentity\Managers\ApplicationRoleManager.cs" />
     <Compile Include="Indentity\Managers\ApplicationUserManager.cs" />
     <Compile Include="Intrefaces\IRepository.cs" />
+    <Compile Include="Intrefaces\IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

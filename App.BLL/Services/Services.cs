@@ -3,36 +3,27 @@ using App.DAL.Entities.Users;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using App.DAL.Identity;
 using App.DAL.Base;
-using App.DAL.Interfaces;
-using App.DAL.Identity.Manager;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity;
-using System.Net.Mail;
 using App.BLL.Data_Transfer_Objects;
 using AutoMapper;
 using App.DAL.Entities;
-using System.Linq.Expressions;
+using App.DAL.Intrefaces;
 
 namespace App.BLL.Services
 {
     public class Services : IServices
     {
-        public UnitOfWork unitOfWork;
-        public Services(UnitOfWork uofw)
+        public IUnitOfWork unitOfWork;
+        public Services(IUnitOfWork uofw)
         {
-            // todo: interface iunitofwork
             unitOfWork = uofw;
         }
 
-
-
         public IServices BuildSetEmailServiceIdentity(IIdentityMessageService mailServ)
         {
-            this.unitOfWork.UsersManager.EmailService = mailServ;
+            this.unitOfWork.UsersManagers.EmailService = mailServ;
             return this;
         }
         // Заполнение базы
@@ -49,20 +40,40 @@ namespace App.BLL.Services
             unitOfWork.Dispose();
         }
 
+        public async Task<ApplicationUsers> CreateUserAndGetUserAsync(ApplicationUsers newUser)
+        {
+            var result = await unitOfWork.UsersManagers.CreateAsync(newUser);
+            if (result.Succeeded)
+            {
+                return await unitOfWork.UsersManagers.FindByIdAsync(newUser.Id);
+            }
+            throw new Exception("error create user");
+        }
+
+        public async Task AddRoleAndUserToRoleAddAsync(ApplicationUsers user, object roleName)
+        {
+            if (!String.IsNullOrEmpty(roleName.ToString()))
+            {
+                var findRole = await unitOfWork.RolesManagers.FindByNameAsync(roleName.ToString());
+                if (findRole == null)
+                {
+                    await unitOfWork.RolesManagers.CreateAsync(new ApplicationRole { Name = roleName.ToString() });
+                }
+                await unitOfWork.UsersManagers.AddToRoleAsync(user.Id, roleName.ToString());
+            }
+            else
+                throw new ArgumentNullException("roleName is null");
+        }
 
         public async Task CreateUserAndAddRoleAsync(UserDto userDTO)
         {
-
-            var validationUser = await unitOfWork.UsersManager.FindByEmailAsync(userDTO.Email);
+            var validationUser = await unitOfWork.UsersManagers.FindByEmailAsync(userDTO.Email);
             if (validationUser == null)
             {
-                //Mapper.Initialize(conf => conf.CreateMap<UserDto, ApplicationUsers>());
                 var userMapper = Mapper.Map(userDTO, new ApplicationUsers());
-                var user = await unitOfWork.CreateUserAndGetUserAsync(userMapper);
-                await unitOfWork.AddRoleAndUserToRoleAddAsync(user, userDTO.RoleName);
+                var user = await CreateUserAndGetUserAsync(userMapper);
+                await AddRoleAndUserToRoleAddAsync(user, userDTO.RoleName);
             }
-            //throw new Exception("userDto error");
-
         }
 
         public IEnumerable<TopicViewDto> GetAllTopic()
@@ -70,7 +81,7 @@ namespace App.BLL.Services
             return Mapper.Map<IEnumerable<Topic>, IEnumerable<TopicViewDto>>(unitOfWork.Topics.GGetAll());
         }
 
-        public  IQueryable<TopicViewDto> WhereTopic(IQueryable<TopicViewDto> coll, Func<TopicViewDto, bool> predicate)
+        public IQueryable<TopicViewDto> WhereTopic(IQueryable<TopicViewDto> coll, Func<TopicViewDto, bool> predicate)
         {
             return coll.Where(predicate).AsQueryable();
         }

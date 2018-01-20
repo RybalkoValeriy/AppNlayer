@@ -6,10 +6,11 @@ using App.DAL.Identity.Manager;
 using App.DAL.Entities.Users;
 using App.DAL.Interfaces;
 using App.DAL.Entities;
+using App.DAL.Intrefaces;
 
 namespace App.DAL.Base
 {
-    public class UnitOfWork : IDisposable
+    public class UnitOfWork : IUnitOfWork
     {
         ApplicationDataContext DataContext;
         ApplicationUserManager UserManager;
@@ -27,38 +28,11 @@ namespace App.DAL.Base
             RoleManager = new ApplicationRoleManager(new RoleStore<ApplicationRole>(DataContext));
         }
 
-
-
-        public async Task<ApplicationUsers> CreateUserAndGetUserAsync(ApplicationUsers newUser)
-        {
-            var result = await UserManager.CreateAsync(newUser);
-            if (result.Succeeded)
-            {
-                return await UserManager.FindByIdAsync(newUser.Id);
-            }
-            throw new Exception("error create user");
-        }
-
-        public async Task AddRoleAndUserToRoleAddAsync(ApplicationUsers user, object roleName)
-        {
-            if (!String.IsNullOrEmpty(roleName.ToString()))
-            {
-                var findRole = await RoleManager.FindByNameAsync(roleName.ToString());
-                if (findRole == null)
-                {
-                    await RoleManager.CreateAsync(new ApplicationRole { Name = roleName.ToString() });
-                }
-                await UserManager.AddToRoleAsync(user.Id, roleName.ToString());
-            }
-            else
-                throw new ArgumentNullException("roleName is null");
-        }
-
         public ApplicationDataContext Data => DataContext;
 
-        public ApplicationUserManager UsersManager => UserManager;
+        public ApplicationUserManager UsersManagers => UserManager;
 
-        public ApplicationRoleManager RolesManager => RoleManager;
+        public ApplicationRoleManager RolesManagers => RoleManager;
 
         public IRepository<Topic> Topics => TopicRepository ?? new Repository<Topic>(this.DataContext);
 
