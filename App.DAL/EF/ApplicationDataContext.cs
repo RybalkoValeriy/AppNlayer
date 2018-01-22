@@ -2,24 +2,23 @@
 using Microsoft.AspNet.Identity.EntityFramework;
 using App.DAL.Entities;
 using App.DAL.Entities.Users;
+using App.DAL.Interfaces;
 
 namespace App.DAL.EF
 {
     //[DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))] //MySql
-    public class ApplicationDataContext : IdentityDbContext<ApplicationUsers>
+    public class ApplicationDataContext : IdentityDbContext<ApplicationUsers>, IBaseContext
     {
         public ApplicationDataContext(string connStr) : base(connStr)
         {
         }
 
-
         //------------------------------------------------------------
-        public DbSet<ApplicationRole> RolesDbSet { get; set; }
-        public DbSet<Topic> TopicsDbset { get; set; }
-        public DbSet<Article> ArticleDbset { get; set; }
-        public DbSet<Comments> CommentsDbset { get; set; }
+        public IDbSet<ApplicationRole> RolesDbSet { get; set; }
+        public IDbSet<Topic> TopicsDbset { get; set; }
+        public IDbSet<Article> ArticleDbset { get; set; }
+        public IDbSet<Comments> CommentsDbset { get; set; }
         //-----------------------------------------------------------
-
 
         //use Fluent API
         protected override void OnModelCreating(DbModelBuilder modelBilder)

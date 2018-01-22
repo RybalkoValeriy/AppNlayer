@@ -1,22 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Data.Entity;
 using System.Linq.Expressions;
-using System.Threading.Tasks;
-using App.DAL.EF;
-using App.DAL.Entities.Users;
-using App.DAL.Entities;
+using App.Repository.Interfaces;
 using App.DAL.Interfaces;
+using System.Data.Entity;
 
-namespace App.DAL.Base
+namespace App.Repository.Base
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        private DbContext db;
-        private DbSet<TEntity> dbSet;
+        private IBaseContext db;
+        private IDbSet<TEntity> dbSet;
 
-        public Repository(ApplicationDataContext context)
+        public Repository(IBaseContext context)
         {
             db = context;
             dbSet = db.Set<TEntity>();
@@ -41,7 +38,6 @@ namespace App.DAL.Base
 
         public IEnumerable<TEntity> GGetAll()
         {
-
             return dbSet.AsNoTracking();
         }
 

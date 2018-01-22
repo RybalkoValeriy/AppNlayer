@@ -1,14 +1,13 @@
 ﻿using App.DAL.EF;
 using App.DAL.Entities;
 using App.DAL.Identity.Manager;
-using App.DAL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace App.DAL.Intrefaces
+namespace App.Repository.Interfaces
 {
     public interface IUnitOfWork : IDisposable
     {

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using App.DAL.Entities;
 using App.DAL.Entities.Users;
 
-namespace App.DAL.Interfaces
+namespace App.Repository.Interfaces
 {
-    public interface IRepository<TEntity> 
+    public interface IRepository<TEntity>
     {
         void Add(TEntity entity);
         TEntity GGetId(object id);

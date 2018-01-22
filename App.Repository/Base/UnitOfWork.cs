@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Identity.EntityFramework;
 using App.DAL.EF;
 using App.DAL.Identity.Manager;
 using App.DAL.Entities.Users;
-using App.DAL.Interfaces;
 using App.DAL.Entities;
-using App.DAL.Intrefaces;
+using App.Repository.Interfaces;
 
-namespace App.DAL.Base
+namespace App.Repository.Base
 {
     public class UnitOfWork : IUnitOfWork
     {

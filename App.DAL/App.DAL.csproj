@@ -75,8 +75,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base\Reposotory.cs" />
-    <Compile Include="Base\UnitOfWork.cs" />
     <Compile Include="EF\ApplicationContextFactory.cs" />
     <Compile Include="EF\ApplicationDataContext.cs" />
     <Compile Include="Entities\Article.cs" />
@@ -86,13 +84,10 @@
     <Compile Include="Entities\Users\ApplicationUsers.cs" />
     <Compile Include="Indentity\Managers\ApplicationRoleManager.cs" />
     <Compile Include="Indentity\Managers\ApplicationUserManager.cs" />
-    <Compile Include="Intrefaces\IRepository.cs" />
-    <Compile Include="Intrefaces\IUnitOfWork.cs" />
+    <Compile Include="Interfaces\BaseContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />

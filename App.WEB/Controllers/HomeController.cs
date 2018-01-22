@@ -9,6 +9,8 @@ using App.BLL.Data_Transfer_Objects;
 using Microsoft.Owin;
 using Microsoft.AspNet.Identity.Owin;
 using System.Threading.Tasks;
+using System.Linq.Expressions;
+
 
 namespace App.WEB.Controllers
 {
@@ -37,7 +39,12 @@ namespace App.WEB.Controllers
         public async Task<ActionResult> Topic()
         {
             await DbInitilize();
-            var model = Services.GetAllTopic().AsQueryable().Where(x => x.TopicResolution == true);
+            //var model = Services.GetAllTopic().AsQueryable().Where(x => x.TopicResolution == true);
+            Func<>
+            Expression<fun> expression
+
+            var model=Services.GetInclude(Expression)
+
             return View("Topic", model);
         }
 

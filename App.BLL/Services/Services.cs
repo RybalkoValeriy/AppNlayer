@@ -10,6 +10,7 @@ using App.BLL.Data_Transfer_Objects;
 using AutoMapper;
 using App.DAL.Entities;
 using App.DAL.Intrefaces;
+using System.Linq.Expressions;
 
 namespace App.BLL.Services
 {
@@ -79,6 +80,11 @@ namespace App.BLL.Services
         public IEnumerable<TopicViewDto> GetAllTopic()
         {
             return Mapper.Map<IEnumerable<Topic>, IEnumerable<TopicViewDto>>(unitOfWork.Topics.GGetAll());
+        }
+
+        public IQueryable<TopicViewDto> GetInclude(params Expression<Func<Topic, object>>[] expr)
+        {
+            return GetInclude(expr);
         }
 
         public IQueryable<TopicViewDto> WhereTopic(IQueryable<TopicViewDto> coll, Func<TopicViewDto, bool> predicate)

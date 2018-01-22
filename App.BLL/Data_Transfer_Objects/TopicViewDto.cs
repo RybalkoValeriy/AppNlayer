@@ -13,5 +13,6 @@ namespace App.BLL.Data_Transfer_Objects
         public DateTime DateAdd { get; set; }
         public bool TopicResolution { get; set; }
         public DateTime? DateResulution { get; set; }
+        public int? ArticleCount { get; set; }
     }
 }
