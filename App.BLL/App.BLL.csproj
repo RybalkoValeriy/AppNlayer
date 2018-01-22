@@ -60,8 +60,8 @@
   <ItemGroup>
     <Compile Include="Data_Transfer_Objects\AppUserDto.cs" />
     <Compile Include="Data_Transfer_Objects\ArticleDto.cs" />
-    <Compile Include="Data_Transfer_Objects\UserDto.cs" />
     <Compile Include="Data_Transfer_Objects\TopicViewDto.cs" />
+    <Compile Include="Data_Transfer_Objects\UserDto.cs" />
     <Compile Include="Infrastructure\AutoMapperConfigure.cs" />
     <Compile Include="Infrastructure\Culture.cs" />
     <Compile Include="Interfaces\IServiceCreator.cs" />
